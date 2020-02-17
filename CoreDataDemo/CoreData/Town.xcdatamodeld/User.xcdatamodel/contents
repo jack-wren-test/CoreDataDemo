@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="18G1012" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Human" representedClassName="Human" syncable="YES" codeGenerationType="class">
+        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="birthDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="profession" optional="YES" attributeType="String"/>
+        <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="human_job" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Job"/>
+        <relationship name="human_pet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pet" inverseName="pet_human" inverseEntity="Pet"/>
+        <relationship name="human_property" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Property"/>
+    </entity>
+    <entity name="Job" representedClassName="Job" syncable="YES" codeGenerationType="class">
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="wage" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="weeklyHours" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Pet" representedClassName="Pet" syncable="YES" codeGenerationType="class">
+        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="birthDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="species" optional="YES" attributeType="String"/>
+        <relationship name="pet_human" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Human" inverseName="human_pet" inverseEntity="Human"/>
+    </entity>
+    <entity name="Property" representedClassName="Property" syncable="YES" codeGenerationType="class">
+        <attribute name="bathrooms" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="bedrooms" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="monthlyRent" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="Human" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="Job" positionX="9" positionY="72" width="128" height="88"/>
+        <element name="Pet" positionX="-54" positionY="-9" width="128" height="118"/>
+        <element name="Property" positionX="-18" positionY="27" width="128" height="88"/>
+    </elements>
+</model>
